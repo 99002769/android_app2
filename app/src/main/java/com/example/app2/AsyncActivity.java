@@ -2,6 +2,7 @@ package com.example.app2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -33,5 +34,20 @@ public class AsyncActivity extends AppCompatActivity {
         String mQueryString = mBookInput.getText().toString();
         new FetchBook(mTitleText, mAuthorText).execute(mQueryString);
 
+    }
+
+
+
+    public void serviceHandler(View view) {
+        Intent serviceIntent = new Intent(AsyncActivity.this,MusicService.class);
+        switch (view.getId())
+        {
+            case R.id.buttonStart:
+                startService(serviceIntent);
+                break;
+            case R.id.buttonStop:
+                stopService(serviceIntent);
+                break;
+        }
     }
 }
