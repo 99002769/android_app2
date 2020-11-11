@@ -31,6 +31,8 @@ public class NetworkUtils {
                     .appendQueryParameter(PRINT_TYPE, "books")
                     .build();
             URL requestURL = new URL(builtURI.toString());
+
+            Log.i(LOG_TAG,"url="+requestURL.toString());
             urlConnection = (HttpURLConnection) requestURL.openConnection();
             urlConnection.setRequestMethod("GET");
             urlConnection.connect();
