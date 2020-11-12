@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.CallLog;
 import android.util.Log;
 import android.view.View;
 import android.widget.CursorAdapter;
@@ -45,13 +46,15 @@ public class MainActivity extends AppCompatActivity {
         Log.i(TAG,"onStart");
         ListView dbListView = findViewById(R.id.dblistview);
         //Cursor dataCursor = dbAccessObj.getRows();
-        Uri uriSms = Uri.parse("content://sms/inbox");
-        Cursor dataCursor =  getContentResolver().query(uriSms,null,null,null,null);
+        //Uri uriSms = Uri.parse("content://sms/inbox");
+        Uri callogUri = CallLog.Calls.CONTENT_URI;
+        Cursor dataCursor =  getContentResolver().query(callogUri,null,null,null,null);
         //put the data into adapter
         CursorAdapter adapter = new SimpleCursorAdapter(this,
                 R.layout.row_listview,
                 dataCursor,
-                new String[]{"body","address"},
+               // new String[]{"body","address"},
+                new String[]{CallLog.Calls.NUMBER,CallLog.Calls.CACHED_NAME},
                 //FeedEntry.COLUMN_NAME_TITLE,FeedEntry.COLUMN_NAME_SUBTITLE},
                 //"title","subtitle"},
                 //"title","subtitle"},
