@@ -21,10 +21,10 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".MainActivity" />
+        <activity android:name=".AsyncActivity" />
         <activity android:name=".RecyclerActivity" />
         <activity android:name=".HomeActivity" />
-        <activity android:name=".AsyncActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
